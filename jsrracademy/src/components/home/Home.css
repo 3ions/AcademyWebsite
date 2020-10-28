@@ -1,4 +1,4 @@
-.particlesJS {
+/* .particlesJS {
   position: absolute;
 
   width: 100%;
@@ -7,6 +7,25 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 50%;
+}
+
+@media only screen and (max-width: 1089px) {
+  .particlesJS {
+    display: flex;
+  }
+} */
+
+.particlesJS {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 1089px) {
