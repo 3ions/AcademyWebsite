@@ -1,6 +1,7 @@
 import React from "react";
 import "./gallery.scss";
-function gallery() {
+
+function Gallery() {
   return (
     <>
       <div className="galleryid">
@@ -21,4 +22,4 @@ function gallery() {
   );
 }
 
-export default gallery;
+export default Gallery;

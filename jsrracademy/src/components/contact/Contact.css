@@ -6,6 +6,7 @@
   align-items: center;
   padding: 15px;
   background: #000;
+  position: relative;
 }
 
 .wrapper {
