@@ -30,7 +30,7 @@ class Contact extends Component {
 
     axios({
       method: "POST",
-      url: "http://localhost:3002/send",
+      url: "http://localhost:5000/send",
       data: this.state,
     }).then((res) => {
       if (res.data.status === "success") {

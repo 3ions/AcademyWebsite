@@ -4,6 +4,12 @@ var cors = require("cors");
 var nodemailer = require("nodemailer");
 const creds = require("./config/config");
 
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const port = process.env.PORT || 5000;
+
 var transport = {
   host: "smtp.gmail.com",
   port: 587,
@@ -15,11 +21,9 @@ var transport = {
 
 var transporter = nodemailer.createTransport(transport);
 
-transporter.verify((error, success) => {
+transporter.verify((error) => {
   if (error) {
     console.log(error);
-  } else {
-    console.log("Server is ready to take messages");
   }
 });
 
@@ -65,8 +69,6 @@ router.post("/send", (req, res, next) => {
   );
 });
 
-const app = express();
-app.use(cors());
-app.use(express.json());
 app.use("/", router);
-app.listen(3002, () => console.log("Server running"));
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
