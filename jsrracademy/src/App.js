@@ -3,9 +3,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import "./App.css";
 import Home from "./components/home/Home";
-import About from "./components/about-us/aboutus";
+import About from "./components/about-us/About";
 import Contact from "./components/contact/Contact";
-import Gallery from "./components/gallery";
+import gallery from "./components/gallery/gallery";
 
 function App() {
   return (

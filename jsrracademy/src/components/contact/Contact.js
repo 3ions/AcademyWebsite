@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TextField from "../common/TextField";
+import "./Contact.css";
 
 class Contact extends Component {
   constructor(props) {
@@ -47,44 +49,20 @@ class Contact extends Component {
   render() {
     return (
       <>
-        <div className="App">
-          <form
-            id="contact-form"
-            onSubmit={this.handleSubmit.bind(this)}
-            method="POST"
-          >
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
+        <div className="container">
+          <div className="wrapper">
+            <form className="form">
+              <span className="form-title">Send Us A Message</span>
+              <TextField
+                forType="first-name"
+                title="Tell us your name *"
+                id="first-name"
                 type="text"
-                className="form-control"
-                value={this.state.name}
-                onChange={this.onNameChange.bind(this)}
+                name="first-name"
+                placeholder="First name"
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                aria-describedby="emailHelp"
-                value={this.state.email}
-                onChange={this.onEmailChange.bind(this)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                className="form-control"
-                rows="5"
-                value={this.state.message}
-                onChange={this.onMessageChange.bind(this)}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
+            </form>
+          </div>
         </div>
       </>
     );
