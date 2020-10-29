@@ -5,7 +5,7 @@ import "./App.css";
 import Home from "./components/home/Home";
 import About from "./components/about-us/About";
 import Contact from "./components/contact/Contact";
-import Gallery from "./components/gallery/Gallery";
+import Gallery from "./components/gallery/gallery";
 
 function App() {
   return (
