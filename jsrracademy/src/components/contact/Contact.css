@@ -161,7 +161,7 @@ textarea.input_in {
   color: #999999;
 }
 
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
   .form {
     width: 60%;
     padding: 56px 30px 63px 30px;

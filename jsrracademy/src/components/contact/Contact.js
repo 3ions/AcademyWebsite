@@ -9,7 +9,7 @@ import axios from "axios";
 import TextField from "../common/TextField";
 import TextAreaField from "../common/TextAreaField";
 import { Button } from "../common/Button";
-import "./contact.css";
+import "./Contact.css";
 
 class Contact extends Component {
   constructor(props) {
