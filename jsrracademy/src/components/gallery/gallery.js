@@ -6,7 +6,9 @@ function Gallery() {
     <>
       <div className="galleryid">
         <div className="gal_container">
-          <h1>Gallery</h1>
+          <div className="title">
+            <h1>Gallery</h1>
+          </div>
 
           <div className="gallery-wrap">
             <div className="item item-1"></div>

@@ -10,6 +10,8 @@
   outline: none;
   border: none;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 .btn:hover {
   padding: 8px 20px;
@@ -26,7 +28,6 @@
 .btn--outline {
   background-color: transparent;
   color: #fff;
-
   padding: 8px 20px;
   border-radius: 4px;
   border: 3px solid var(--primary);

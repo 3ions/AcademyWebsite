@@ -38,12 +38,8 @@
   z-index: 3;
 }
 
-.inner-container h1 {
-  margin-bottom: 30px;
-  color: #fff;
-  font-size: 48px;
-  font-weight: 900;
-  text-align: center;
+.title h1 {
+  background-color: #00000000;
 }
 
 .text {

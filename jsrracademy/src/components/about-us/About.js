@@ -17,7 +17,9 @@ function About() {
           />
         </div>
         <div className="inner-container">
-          <h1>About Us</h1>
+          <div className="title">
+            <h1>About Us</h1>
+          </div>
           <p className="text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
             velit ducimus, enim inventore earum, eligendi nostrum pariatur

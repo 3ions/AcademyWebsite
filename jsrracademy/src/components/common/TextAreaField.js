@@ -1,35 +1,23 @@
 import React from "react";
 import "../contact/contact.css";
 
-const TextField = ({
-  forType,
-  title,
-  id,
-  type,
-  name,
-  placeholder,
-  value,
-  onChange,
-}) => {
+const TextAreaField = ({ forType, title, id, name, placeholder }) => {
   return (
     <>
       <label className="label" htmlFor={forType}>
         {title}
       </label>
       <div className="wrapper-input">
-        <input
+        <textarea
           id={id}
           className="input_in"
-          type={type}
           name={name}
           placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-        />
+        ></textarea>
         <span className="focus-input"></span>
       </div>
     </>
   );
 };
 
-export default TextField;
+export default TextAreaField;

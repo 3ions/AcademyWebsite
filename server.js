@@ -30,17 +30,18 @@ transporter.verify((error) => {
 router.post("/send", (req, res, next) => {
   var name = req.body.name;
   var email = req.body.email;
+  var phone = req.body.phone;
   var message = req.body.message;
-  var content = `name: ${name} \n email: ${email} \n message: ${message} `;
+  var content = `Received new inquiry from website jsrracademy.com \nThe information from the user are: \nName of the Recipient: ${name} \nEmail-ID given: ${email} \nPhone Number: ${phone} \nMessage given: ${message} `;
 
   var mail = {
     from: name,
-    to: "mlmtt1998@gmail.com",
-    subject: "New Message from Contact Form",
+    to: "jsrracademy@gmail.com",
+    subject: "New Inquiry from Contact Form",
     text: content,
   };
 
-  transporter.sendMail(mail, (err, data) => {
+  transporter.sendMail(mail, (err) => {
     if (err) {
       res.json({
         status: "fail",
@@ -56,8 +57,8 @@ router.post("/send", (req, res, next) => {
     {
       from: "jsrracademy@gmail.com",
       to: email,
-      subject: "Submission was successful",
-      text: `Thank you for contacting us!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      subject: "Submission was successful - JSRR Team",
+      text: `Thank you for contacting us! \nWe will revert back to you ASAP or you can give us a call on the phone number provided.\n\nForm submission details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
     },
     function (error, info) {
       if (error) {
