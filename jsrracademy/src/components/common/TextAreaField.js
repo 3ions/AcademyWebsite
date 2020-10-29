@@ -1,5 +1,5 @@
 import React from "react";
-import "../contact/contact.css";
+import "../contact/Contact.css";
 
 const TextAreaField = ({
   forType,

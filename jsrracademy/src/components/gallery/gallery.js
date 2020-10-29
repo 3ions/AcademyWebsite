@@ -18,6 +18,8 @@ function Gallery() {
             <div className="item item-5"></div>
             <div className="item item-6"></div>
             <div className="item item-7"></div>
+            <div className="item item-8"></div>
+            <div className="item item-9"></div>
           </div>
         </div>
       </div>
