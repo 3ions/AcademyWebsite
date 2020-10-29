@@ -1,6 +1,6 @@
 .NavbarItems {
-  background: black;
-
+  background: #000000;
+  font-weight: 700;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@
 
 .navbar-logo {
   color: #fff;
-
+  font-weight: normal;
   text-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 0 #fff, 0 0 0 #fff;
   justify-self: start;
   margin-left: 20px;
