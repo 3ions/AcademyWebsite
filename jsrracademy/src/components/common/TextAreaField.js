@@ -1,7 +1,15 @@
 import React from "react";
 import "../contact/contact.css";
 
-const TextAreaField = ({ forType, title, id, name, placeholder }) => {
+const TextAreaField = ({
+  forType,
+  title,
+  id,
+  name,
+  placeholder,
+  value,
+  onChange,
+}) => {
   return (
     <>
       <label className="label" htmlFor={forType}>
@@ -13,6 +21,8 @@ const TextAreaField = ({ forType, title, id, name, placeholder }) => {
           className="input_in"
           name={name}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         ></textarea>
         <span className="focus-input"></span>
       </div>

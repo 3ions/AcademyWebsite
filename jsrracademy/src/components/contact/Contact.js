@@ -114,7 +114,7 @@ class Contact extends Component {
               />
 
               <div className="form-btn">
-                <Button>Send Message</Button>
+                <Button dark="true">Send Message</Button>
               </div>
             </form>
             <div className="photo">
@@ -158,7 +158,7 @@ class Contact extends Component {
                     <span className="pad">WhatsApp</span>
                   </span>
 
-                  <span className="txt">+91-123456789</span>
+                  <span className="txt">9206447090</span>
                 </div>
               </div>
             </div>

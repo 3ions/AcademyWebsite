@@ -42,19 +42,29 @@
   background-color: #00000000;
 }
 
-.text {
-  font-size: 13px;
+.important {
+  font-size: 20px;
+}
+
+.text1 {
+  font-size: 18px;
   color: #fff;
   line-height: 30px;
   text-align: justify;
   margin-bottom: 40px;
+  font-weight: lighter;
 }
 
-.skills {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 13px;
+.subtitle {
+  font-size: 22px;
+  color: #f2f2f2;
+}
+
+.text2 {
+  color: #fff;
+  font-size: 18px;
+  text-align: justify;
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 1200px) {
