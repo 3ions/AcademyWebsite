@@ -1,7 +1,15 @@
 import React, { Component } from "react";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaWhatsapp,
+} from "react-icons/fa";
 import axios from "axios";
 import TextField from "../common/TextField";
-import "./Contact.css";
+import TextAreaField from "../common/TextAreaField";
+import { Button } from "../common/Button";
+import "./contact.css";
 
 class Contact extends Component {
   constructor(props) {
@@ -9,6 +17,7 @@ class Contact extends Component {
     this.state = {
       name: "",
       email: "",
+      phone: "",
       message: "",
     };
   }
@@ -19,6 +28,10 @@ class Contact extends Component {
 
   onEmailChange(event) {
     this.setState({ email: event.target.value });
+  }
+
+  onPhoneChange(event) {
+    this.setState({ phone: event.target.value });
   }
 
   onMessageChange(event) {
@@ -34,7 +47,6 @@ class Contact extends Component {
       data: this.state,
     }).then((res) => {
       if (res.data.status === "success") {
-        alert("Message Sent.");
         this.resetForm();
       } else if (res.data.status === "fail") {
         alert("Message failed to send.");
@@ -43,25 +55,113 @@ class Contact extends Component {
   }
 
   resetForm() {
-    this.setState({ name: "", email: "", message: "" });
+    this.setState({ name: "", email: "", phone: "", message: "" });
   }
 
   render() {
     return (
       <>
+        <div className="title bg-color">
+          <h1>Contact Us</h1>
+        </div>
         <div className="container">
           <div className="wrapper">
-            <form className="form">
+            <form
+              className="form"
+              id="contact-form"
+              onSubmit={this.handleSubmit.bind(this)}
+              method="POST"
+            >
               <span className="form-title">Send Us A Message</span>
               <TextField
-                forType="first-name"
+                forType="full-name"
                 title="Tell us your name *"
-                id="first-name"
+                id="full-name"
                 type="text"
-                name="first-name"
-                placeholder="First name"
+                name="full-name"
+                placeholder="Full name"
+                value={this.state.name}
+                onChange={this.onNameChange.bind(this)}
               />
+              <TextField
+                forType="email"
+                title="Enter your email *"
+                id="email"
+                type="text"
+                name="email"
+                placeholder="Eg. example@email.com"
+                value={this.state.email}
+                onChange={this.onEmailChange.bind(this)}
+              />
+              <TextField
+                forType="phone"
+                title="Enter your phone number *"
+                id="phone"
+                type="text"
+                name="phone"
+                placeholder="Eg. +919876543210"
+                value={this.state.phone}
+                onChange={this.onPhoneChange.bind(this)}
+              />
+              <TextAreaField
+                forType="message"
+                title="Message *"
+                id="message"
+                name="message"
+                placeholder="Write us a message"
+                value={this.state.message}
+                onChange={this.onMessageChange.bind(this)}
+              />
+
+              <div className="form-btn">
+                <Button dark="true">Send Message</Button>
+              </div>
             </form>
+            <div className="photo">
+              <div className="text-wrap">
+                <div className="text-wrap-col">
+                  <span className="text-head">
+                    <FaMapMarkerAlt />
+                    <span className="pad">Address</span>
+                  </span>
+
+                  <span className="txt">
+                    No. 19/1, 2nd Floor, 8th Main, 13th Cross, Wilson Garden,
+                    Bangalore - 560027
+                  </span>
+                </div>
+              </div>
+              <div className="text-wrap">
+                <div className="text-wrap-col">
+                  <span className="text-head">
+                    <FaPhoneAlt />
+                    <span className="pad">Call Us</span>
+                  </span>
+
+                  <span className="txt">080-22225590</span>
+                </div>
+              </div>
+              <div className="text-wrap">
+                <div className="text-wrap-col">
+                  <span className="text-head">
+                    <FaEnvelope />
+                    <span className="pad">General Support</span>
+                  </span>
+
+                  <span className="txt">jsrracademy@gmail.com</span>
+                </div>
+              </div>
+              <div className="text-wrap">
+                <div className="text-wrap-col">
+                  <span className="text-head">
+                    <FaWhatsapp />
+                    <span className="pad">WhatsApp</span>
+                  </span>
+
+                  <span className="txt">9206447090</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </>

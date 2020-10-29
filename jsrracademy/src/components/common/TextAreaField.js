@@ -1,11 +1,10 @@
 import React from "react";
 import "../contact/contact.css";
 
-const TextField = ({
+const TextAreaField = ({
   forType,
   title,
   id,
-  type,
   name,
   placeholder,
   value,
@@ -17,19 +16,18 @@ const TextField = ({
         {title}
       </label>
       <div className="wrapper-input">
-        <input
+        <textarea
           id={id}
           className="input_in"
-          type={type}
           name={name}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-        />
+        ></textarea>
         <span className="focus-input"></span>
       </div>
     </>
   );
 };
 
-export default TextField;
+export default TextAreaField;

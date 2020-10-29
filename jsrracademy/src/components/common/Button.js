@@ -9,6 +9,7 @@ export const Button = ({
   children,
   type,
   onClick,
+  dark,
   buttonStyle,
   buttonSize,
 }) => {
@@ -18,9 +19,11 @@ export const Button = ({
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
+  const btnDark = dark ? "btn-dark" : "btn-white";
+
   return (
     <button
-      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      className={`btn ${checkButtonStyle} ${checkButtonSize} ${btnDark}`}
       onClick={onClick}
       type={type}
     >
