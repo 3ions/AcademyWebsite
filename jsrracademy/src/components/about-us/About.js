@@ -24,8 +24,8 @@ function About() {
             <strong className="important">
               Jnakshi Sri RajaRajeshwari Academy{" "}
             </strong>
-            (JSRRA) is an incompatible School of Learning lead by diverse and
-            highly trained faculty.
+            (JSRRA) is an incompatible <b>School of Learning</b> lead by diverse
+            and highly trained faculty.
           </p>
           <p className="text2">
             <span className="subtitle">Vision: </span>
