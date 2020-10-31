@@ -5,57 +5,48 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from "react-icons/fa";
-import axios from "axios";
 import TextField from "../common/TextField";
 import TextAreaField from "../common/TextAreaField";
 import { Button } from "../common/Button";
+import axios from "axios";
 import "./Contact.css";
 
 class Contact extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       name: "",
       email: "",
       phone: "",
       message: "",
+      msg: "Send Message",
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onPhoneChange(event) {
-    this.setState({ phone: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    axios({
-      method: "POST",
-      url: "http://localhost:5000/send",
-      data: this.state,
-    }).then((res) => {
-      if (res.data.status === "success") {
-        this.resetForm();
-      } else if (res.data.status === "fail") {
+    const userData = this.state;
+
+    axios.post("/send", userData).then((res) => {
+      if (res.status === "fail") {
         alert("Message failed to send.");
       }
+      this.setState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        msg: "Message Sent!",
+      });
     });
-  }
-
-  resetForm() {
-    this.setState({ name: "", email: "", phone: "", message: "" });
   }
 
   render() {
@@ -69,19 +60,19 @@ class Contact extends Component {
             <form
               className="form"
               id="contact-form"
-              onSubmit={this.handleSubmit.bind(this)}
+              onSubmit={this.handleSubmit}
               method="POST"
             >
               <span className="form-title">Send Us A Message</span>
               <TextField
-                forType="full-name"
+                forType="name"
                 title="Tell us your name *"
-                id="full-name"
+                id="name"
                 type="text"
-                name="full-name"
-                placeholder="Full name"
+                name="name"
+                placeholder="Name"
                 value={this.state.name}
-                onChange={this.onNameChange.bind(this)}
+                onChange={this.onChange}
               />
               <TextField
                 forType="email"
@@ -91,7 +82,7 @@ class Contact extends Component {
                 name="email"
                 placeholder="Eg. example@email.com"
                 value={this.state.email}
-                onChange={this.onEmailChange.bind(this)}
+                onChange={this.onChange}
               />
               <TextField
                 forType="phone"
@@ -101,7 +92,7 @@ class Contact extends Component {
                 name="phone"
                 placeholder="Eg. +919876543210"
                 value={this.state.phone}
-                onChange={this.onPhoneChange.bind(this)}
+                onChange={this.onChange}
               />
               <TextAreaField
                 forType="message"
@@ -110,11 +101,11 @@ class Contact extends Component {
                 name="message"
                 placeholder="Write us a message"
                 value={this.state.message}
-                onChange={this.onMessageChange.bind(this)}
+                onChange={this.onChange}
               />
 
               <div className="form-btn">
-                <Button dark="true">Send Message</Button>
+                <Button dark="true">{this.state.msg}</Button>
               </div>
             </form>
             <div className="photo">
