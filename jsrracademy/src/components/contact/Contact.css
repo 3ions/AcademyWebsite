@@ -172,6 +172,9 @@ textarea.input_in {
   .photo {
     width: 40%;
   }
+  .form-btn Button {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
@@ -182,10 +185,16 @@ textarea.input_in {
   .photo {
     width: 100%;
   }
+  .form-btn Button {
+    display: flex;
+  }
 }
 
 @media (max-width: 576px) {
   .form {
     padding: 56px 15px 63px 15px;
+  }
+  .form-btn Button {
+    display: flex;
   }
 }
