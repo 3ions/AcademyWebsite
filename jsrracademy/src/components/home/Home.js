@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Home.css";
+import "./Home.scss";
 import Particles from "react-particles-js";
 
 class Home extends Component {
