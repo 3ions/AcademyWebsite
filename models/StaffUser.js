@@ -7,6 +7,10 @@ const StaffUserSchema = new Schema({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
   staffID: {
     type: String,
     required: true,

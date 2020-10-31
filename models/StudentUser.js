@@ -11,6 +11,14 @@ const StudentUserSchema = new Schema({
     type: String,
     required: true,
   },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
   password: {
     type: String,
     required: true,
@@ -19,9 +27,25 @@ const StudentUserSchema = new Schema({
     type: String,
     required: false,
   },
-  date: {
-    type: Date,
-    default: Date.now,
+  parentContact: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  grade: {
+    type: String,
+    required: true,
+  },
+  school: {
+    type: String,
+    required: true,
+  },
+  board: {
+    type: String,
+    required: true,
   },
 });
 

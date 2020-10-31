@@ -9,6 +9,7 @@ export const Button = ({
   children,
   type,
   onClick,
+  msg,
   dark,
   buttonStyle,
   buttonSize,
@@ -27,6 +28,7 @@ export const Button = ({
       onClick={onClick}
       type={type}
     >
+      {msg}
       {children}
     </button>
   );

@@ -1,8 +1,8 @@
 const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 const mongoose = require("mongoose");
-const StudentUser = mongoose.model("students");
 const StaffUser = mongoose.model("staffs");
+const StudentUser = mongoose.model("students");
 const keys = require("../config/keys");
 
 const opts = {};
@@ -22,9 +22,7 @@ module.exports = (passport) => {
         .catch((err) => console.log(err));
     })
   );
-};
 
-module.exports = (passport) => {
   passport.use(
     new JWTStrategy(opts, (jwt_payload, done) => {
       StaffUser.findById(jwt_payload.id)

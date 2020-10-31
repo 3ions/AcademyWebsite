@@ -51,16 +51,17 @@
   color: #fff;
   line-height: 30px;
   text-align: justify;
-  margin-bottom: 40px;
   font-weight: lighter;
 }
 
 .subtitle {
   font-size: 17px;
   color: #f2f2f2;
+  font-weight: 600;
 }
 
 .text2 {
+  margin-top: 10px;
   color: #fff;
   font-size: 18px;
   text-align: justify;
@@ -76,17 +77,21 @@
   .about-section {
     background-size: 100%;
     padding: 100px 40px;
+    overflow: hidden;
   }
   .inner-container {
     width: 100%;
+    overflow: hidden;
   }
 }
 
 @media screen and (max-width: 600px) {
   .about-section {
     padding: 0;
+    overflow: hidden;
   }
   .inner-container {
     padding: 60px;
+    overflow: hidden;
   }
 }
