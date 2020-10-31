@@ -52,7 +52,7 @@ class Contact extends Component {
   render() {
     return (
       <>
-        <div className="title bg-color">
+        <div className="title bg-color" id="contact">
           <h1>Contact Us</h1>
         </div>
         <div className="container">

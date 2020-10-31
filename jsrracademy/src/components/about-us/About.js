@@ -5,7 +5,7 @@ import "./about.css";
 function About() {
   return (
     <>
-      <div className="about-section">
+      <div className="about-section" id="about">
         <div className="herobg">
           <video
             autoPlay

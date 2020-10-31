@@ -49,6 +49,11 @@
   box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 0 #fff, 0 0 0 #fff;
   border-radius: 4px;
   transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+.nav-links > .active {
+  width: 106.41px;
+  height: 41px;
 }
 .fa-bars {
   color: #fff;

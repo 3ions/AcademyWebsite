@@ -4,7 +4,7 @@ import "./gallery.scss";
 function Gallery() {
   return (
     <>
-      <div className="galleryid">
+      <div className="galleryid" id="gallery">
         <div className="gal_container">
           <div className="title">
             <h1>Gallery</h1>
