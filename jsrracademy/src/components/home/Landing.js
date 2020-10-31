@@ -5,7 +5,7 @@ import "./Home.scss";
 const Landing = () => {
   return (
     <>
-      <div className="landing">
+      <div className="landing" id="home">
         <Home />
       </div>
       <div className="land-cont">
