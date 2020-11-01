@@ -1,5 +1,7 @@
 .bg-color {
   background-color: #000000;
+  padding-top: 55px;
+  padding-bottom: -10px;
 }
 
 .container {

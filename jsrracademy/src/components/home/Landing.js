@@ -9,13 +9,15 @@ const Landing = () => {
         <Home />
       </div>
       <div className="land-cont">
-        <p class="items-1">WELCOME TO JSRR ACADEMY!</p>
+        <p className="items-1">WELCOME TO JSRR ACADEMY!</p>
 
-        <p class="items-2">
+        <p className="items-2">
           "The Cave You Fear <br />
           to Enter Holds The Treasure You Seek"
         </p>
-        <p class="items-3">YOUR UNFAILING LOVE IS BETTER THAN LIFE ITSELF.</p>
+        <p className="items-3">
+          YOUR UNFAILING LOVE IS BETTER THAN LIFE ITSELF.
+        </p>
       </div>
     </>
   );

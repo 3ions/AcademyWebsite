@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as LinkS, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "../common/Button";
 
@@ -10,16 +11,22 @@ class Navbar extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
-  scrollToTop = () => {
-    scroll.scrollToTop();
-  };
-
   render() {
+    const scrollToTop = () => {
+      scroll.scrollToTop();
+    };
+
     return (
       <nav className="NavbarItems">
-        <Link to="home" spy={true} smooth={true} duration={500}>
+        <LinkS
+          to="home"
+          spy={true}
+          smooth={true}
+          duration={500}
+          onClick={scrollToTop}
+        >
           <h1 className="navbar-logo">JSRR ACADEMY</h1>
-        </Link>
+        </LinkS>
 
         <div className="menu-icon" onClick={this.handleClick}>
           <i
@@ -28,52 +35,53 @@ class Navbar extends Component {
         </div>
         <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           <li className="nav-links">
-            <Link
+            <LinkS
               activeClass="active"
               to="home"
               spy={true}
               smooth={true}
-              duration={500}
+              duration={600}
             >
               Home
-            </Link>
+            </LinkS>
           </li>
           <li className="nav-links">
-            <Link
+            <LinkS
               activeClass="active"
               to="about"
               spy={true}
               smooth={true}
-              duration={500}
+              duration={600}
             >
               About Us
-            </Link>
+            </LinkS>
           </li>
           <li className="nav-links">
-            <Link
+            <LinkS
               activeClass="active"
               to="gallery"
               spy={true}
               smooth={true}
-              duration={500}
+              duration={600}
             >
               Gallery
-            </Link>
+            </LinkS>
           </li>
           <li className="nav-links">
-            <Link
+            <LinkS
               activeClass="active"
               to="contact"
               spy={true}
               smooth={true}
-              offset={-50}
-              duration={500}
+              duration={600}
             >
               Contact Us
-            </Link>
+            </LinkS>
           </li>
         </ul>
-        <Button>Sign In</Button>
+        <Link to="/students">
+          <Button>Sign In</Button>
+        </Link>
       </nav>
     );
   }

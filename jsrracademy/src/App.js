@@ -1,20 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Page from "./page";
+import Login from "./components/login";
 import "./App.css";
-import Landing from "./components/home/Landing";
-import About from "./components/about-us/About";
-import Contact from "./components/contact/Contact";
-import Gallery from "./components/gallery/gallery";
+
+import StaffLogin from "./components/login/StaffLogin";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Landing />
-      <About />
-      <Gallery />
-      <Contact />
+      <Switch>
+        <Route path="/" component={Page} exact />
+        <Route path="/students" component={Login} exact />
+        <Route path="/staffs" component={StaffLogin} exact />
+      </Switch>
     </Router>
   );
 }
