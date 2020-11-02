@@ -27,7 +27,7 @@ function About() {
             (JSRRA) is an incompatible <b>School of Learning</b> lead by diverse
             and highly trained faculty.
           </p>
-          <p className="text2">
+          <p className="text2 remove">
             <span className="subtitle">Vision: </span>
             We shall pursue every student of our Academy to take responsibility
             and ownership for their systematic learning by guiding them to
@@ -43,11 +43,11 @@ function About() {
             environment to motivate all students of our Academy to
             systematically learn and excel. {"\n"}
           </p>
-          <p className="text2">
+          <p className="text2 remove">
             <span className="subtitle">Integrity: </span> Conducting ourselves
             with responsibility and honesty. {"\n"}
           </p>
-          <p className="text2">
+          <p className="text2 remove">
             <span className="subtitle">Service: </span> Dedicate ourselves to
             deliver excellent service. {"\n"}
           </p>

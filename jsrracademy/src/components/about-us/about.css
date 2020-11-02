@@ -94,4 +94,7 @@
     padding: 60px;
     overflow: hidden;
   }
+  p.remove {
+    display: none;
+  }
 }

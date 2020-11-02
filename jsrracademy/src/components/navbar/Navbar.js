@@ -27,7 +27,6 @@ class Navbar extends Component {
         >
           <h1 className="navbar-logo">JSRR ACADEMY</h1>
         </LinkS>
-
         <div className="menu-icon" onClick={this.handleClick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -77,6 +76,11 @@ class Navbar extends Component {
             >
               Contact Us
             </LinkS>
+          </li>
+          <li>
+            <Link to="/students" className="nav-links-mobile">
+              Sign In
+            </Link>
           </li>
         </ul>
         <Link to="/students">

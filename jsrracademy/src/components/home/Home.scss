@@ -8,12 +8,7 @@
   background-size: contain;
   background-position: 50% 50%;
 }
-
-@media only screen and (max-width: 1089px) {
-  .particlesJS {
-    display: flex;
-  }
-} */
+*/
 
 .particlesJS {
   position: relative;
@@ -123,5 +118,15 @@
     left: 65%;
 
     opacity: 0;
+  }
+}
+@media only screen and (max-width: 1089px) {
+  .particlesJS {
+    display: flex;
+  }
+  .items-1,
+  .items-2,
+  .items-3 {
+    font-size: 2em;
   }
 }
