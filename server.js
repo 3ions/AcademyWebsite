@@ -37,7 +37,7 @@ app.use("/staffs", staff);
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("client/build"));
+  app.use(express.static("jsrracademy/build"));
 }
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
