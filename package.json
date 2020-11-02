@@ -4,8 +4,8 @@
   "description": "Website for JSRR Academy",
   "main": "server.js",
   "scripts": {
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
+    "build": "cd jsrracademy && npm run build",
+    "install-client": "cd jsrracademy && npm install",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd jsrracademy && npm start",
