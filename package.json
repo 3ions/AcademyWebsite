@@ -4,10 +4,13 @@
   "description": "Website for JSRR Academy",
   "main": "server.js",
   "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd jsrracademy && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
   "author": "3ions",
   "license": "MIT",

@@ -1,7 +1,5 @@
-module.exports = {
-  mongoURI:
-    "mongodb+srv://jsrra:3NSVGsCfG9WnROmQ@jsrr-academy.eawpm.mongodb.net/jsrra?retryWrites=true&w=majority",
-  secretOrKey: "secret",
-  contact_user: "jsrracademy",
-  contact_password: "aishwarya123",
-};
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys_prod");
+} else {
+  module.exports = require("./keys_dev");
+}
