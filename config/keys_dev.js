@@ -3,5 +3,5 @@ module.exports = {
     "mongodb+srv://jsrra:3NSVGsCfG9WnROmQ@jsrr-academy.eawpm.mongodb.net/jsrra?retryWrites=true&w=majority",
   secretOrKey: "secret",
   contact_user: "jsrracademy",
-  contact_password: "aishwarya123",
+  contact_password: "cbzmcaqtayqzjtke",
 };

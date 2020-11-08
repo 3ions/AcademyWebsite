@@ -31,6 +31,10 @@ const StudentUserSchema = new Schema({
     type: String,
     required: true,
   },
+  altContact: {
+    type: String,
+    required: true,
+  },
   address: {
     type: String,
     required: true,
@@ -40,10 +44,6 @@ const StudentUserSchema = new Schema({
     required: true,
   },
   school: {
-    type: String,
-    required: true,
-  },
-  board: {
     type: String,
     required: true,
   },

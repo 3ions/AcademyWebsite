@@ -6,6 +6,8 @@ const passport = require("passport");
 const contact = require("./routes/index");
 const student = require("./routes/students");
 const staff = require("./routes/staffs");
+const studentProfile = require("./routes/studentProfile");
+const staffProfile = require("./routes/staffProfile");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -33,6 +35,8 @@ require("./config/passport")(passport);
 app.use("/", contact);
 app.use("/students", student);
 app.use("/staffs", staff);
+app.use("/studentProfile", studentProfile);
+app.use("./staffProfile", staffProfile);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
