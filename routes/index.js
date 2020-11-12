@@ -3,6 +3,9 @@ const router = exp.Router();
 var nodemailer = require("nodemailer");
 const creds = require("../config/keys");
 
+// Load input validation
+const validateContactForm = require("../validation/contact/contactForm");
+
 var transport = {
   host: "smtp.gmail.com",
   port: 587,
@@ -21,6 +24,13 @@ transporter.verify((error) => {
 });
 
 router.post("/send", (req, res, next) => {
+  const { errors, isValid } = validateContactForm(req.body);
+
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   var name = req.body.name;
   var email = req.body.email;
   var phone = req.body.phone;
@@ -36,13 +46,8 @@ router.post("/send", (req, res, next) => {
 
   transporter.sendMail(mail, (err) => {
     if (err) {
-      res.json({
-        status: "fail",
-      });
-    } else {
-      res.json({
-        status: "success",
-      });
+      errors.status = "Message not Sent!";
+      return res.status(400).json(errors);
     }
   });
 
@@ -53,11 +58,11 @@ router.post("/send", (req, res, next) => {
       subject: "Submission was successful - JSRR Team",
       text: `Thank you for contacting us! \nWe will revert back to you ASAP or you can give us a call on the phone number provided.\n\nForm submission details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
     },
-    function (error, info) {
-      if (error) {
-        console.log(error);
+    function (err, info) {
+      if (err) {
+        return res.status(400).json(err);
       } else {
-        console.log("Message sent: " + info.response);
+        res.json(info.response);
       }
     }
   );

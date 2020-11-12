@@ -27,11 +27,11 @@ const StudentUserSchema = new Schema({
     type: String,
     required: false,
   },
-  parentContact: {
+  parentcontact: {
     type: String,
     required: true,
   },
-  altContact: {
+  altcontact: {
     type: String,
     required: true,
   },
@@ -46,6 +46,10 @@ const StudentUserSchema = new Schema({
   school: {
     type: String,
     required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 

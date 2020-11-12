@@ -1,4 +1,4 @@
-.NavbarItems {
+.navbar {
   background: #000000;
   font-weight: 700;
   height: 80px;
@@ -6,11 +6,17 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-logo {
@@ -20,10 +26,6 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
-}
-.fa-react {
-  margin-left: 0.5rem;
-  font-size: 1.6rem;
 }
 
 .nav-menu {
@@ -52,6 +54,7 @@
   cursor: pointer;
   padding-left: -16px;
 }
+
 .nav-links > .active {
   border-bottom: 3px solid #f2f2f2;
 }
@@ -68,32 +71,31 @@
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 978px) {
   .NavbarItems {
-    position: absolute;
+    position: relative;
+    overflow: hidden;
   }
 
   .nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    position: relative;
+    height: 90vh;
+    position: absolute;
     top: 80px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
   }
 
   .nav-menu.active {
-    background: black;
+    background: #000000;
     left: 0;
-    width: 100%;
     opacity: 1;
     transition: all 0.5s ease;
-    position: absolute;
-    box-sizing: content-box;
     overflow: hidden;
+    z-index: 1;
   }
 
   .nav-links {
@@ -142,6 +144,7 @@
     text-decoration: none;
     color: black;
     font-size: 1.5rem;
+    overflow: hidden;
   }
 
   .nav-links-mobile:hover {

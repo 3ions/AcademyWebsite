@@ -1,38 +1,51 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as LinkS, animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "../common/Button";
 
-class Navbar extends Component {
-  state = { clicked: false };
+function Navbar() {
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
   };
 
-  render() {
-    const scrollToTop = () => {
-      scroll.scrollToTop();
-    };
+  useEffect(() => {
+    showButton();
+  }, []);
 
-    return (
-      <nav className="NavbarItems">
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
         <LinkS
           to="home"
           spy={true}
           smooth={true}
-          duration={500}
+          duration={600}
+          offset={-80}
           onClick={scrollToTop}
         >
-          <h1 className="navbar-logo">JSRR ACADEMY</h1>
+          <h1 className="navbar-logo" onClick={closeMobileMenu}>
+            JSRR ACADEMY
+          </h1>
         </LinkS>
-        <div className="menu-icon" onClick={this.handleClick}>
-          <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-          ></i>
+        <div className="menu-icon" onClick={handleClick}>
+          <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-links">
             <LinkS
               activeClass="active"
@@ -40,6 +53,8 @@ class Navbar extends Component {
               spy={true}
               smooth={true}
               duration={600}
+              offset={-80}
+              onClick={closeMobileMenu}
             >
               Home
             </LinkS>
@@ -51,6 +66,7 @@ class Navbar extends Component {
               spy={true}
               smooth={true}
               duration={600}
+              onClick={closeMobileMenu}
             >
               About Us
             </LinkS>
@@ -62,6 +78,7 @@ class Navbar extends Component {
               spy={true}
               smooth={true}
               duration={600}
+              onClick={closeMobileMenu}
             >
               Gallery
             </LinkS>
@@ -73,6 +90,7 @@ class Navbar extends Component {
               spy={true}
               smooth={true}
               duration={600}
+              onClick={closeMobileMenu}
             >
               Contact Us
             </LinkS>
@@ -83,12 +101,10 @@ class Navbar extends Component {
             </Link>
           </li>
         </ul>
-        <Link to="/students">
-          <Button>Sign In</Button>
-        </Link>
-      </nav>
-    );
-  }
+        <Link to="/students">{button && <Button>Sign In</Button>}</Link>
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;

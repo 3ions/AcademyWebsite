@@ -4,6 +4,12 @@ import Particles from "react-particles-js";
 
 class Home extends Component {
   render() {
+    var val = 40;
+
+    if (window.innerWidth <= 1089) {
+      val = 20;
+    }
+
     return (
       <>
         <div className="particlesJS">
@@ -11,7 +17,7 @@ class Home extends Component {
             params={{
               particles: {
                 number: {
-                  value: 40,
+                  value: val,
                   density: {
                     enable: true,
                     value_area: 800,
@@ -46,7 +52,7 @@ class Home extends Component {
                   },
                 },
                 size: {
-                  value: 9,
+                  value: 5,
                   random: true,
                   anim: {
                     enable: false,
@@ -59,7 +65,6 @@ class Home extends Component {
                   enable: true,
                   distance: 150,
                   color: "#00d4ff",
-
                   opacity: 0.4,
                   width: 1,
                 },

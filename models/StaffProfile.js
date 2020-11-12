@@ -12,6 +12,10 @@ const StaffProfileSchema = new Schema({
     required: true,
     max: 40,
   },
+  status: {
+    type: String,
+    required: true,
+  },
   contact: {
     type: String,
     required: true,

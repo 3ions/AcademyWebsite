@@ -10,11 +10,11 @@ module.exports = function validateStudentRegisterInput(data) {
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
   data.dob = !isEmpty(data.dob) ? data.dob : "";
-  data.parentContact = !isEmpty(data.parentContact) ? data.parentContact : "";
+  data.parentcontact = !isEmpty(data.parentcontact) ? data.parentcontact : "";
+  data.altcontact = !isEmpty(data.altcontact) ? data.altcontact : "";
   data.address = !isEmpty(data.address) ? data.address : "";
   data.grade = !isEmpty(data.grade) ? data.grade : "";
   data.school = !isEmpty(data.school) ? data.school : "";
-  data.board = !isEmpty(data.board) ? data.board : "";
 
   if (!validator.isLength(data.name, { min: 2, max: 30 })) {
     errors.name = "Name must be between 2 and 30 characters";
@@ -48,8 +48,12 @@ module.exports = function validateStudentRegisterInput(data) {
     errors.dob = "Date of Birth is required";
   }
 
-  if (validator.isEmpty(data.parentContact)) {
-    errors.parentContact = "Contact is required";
+  if (validator.isEmpty(data.parentcontact)) {
+    errors.parentcontact = "Contact is required";
+  }
+
+  if (validator.isEmpty(data.altcontact)) {
+    errors.altcontact = "Contact is required";
   }
 
   if (validator.isEmpty(data.address)) {
@@ -62,10 +66,6 @@ module.exports = function validateStudentRegisterInput(data) {
 
   if (validator.isEmpty(data.school)) {
     errors.school = "School is required";
-  }
-
-  if (validator.isEmpty(data.board)) {
-    errors.board = "School board is required";
   }
 
   return {
