@@ -11,12 +11,13 @@
   align-items: center;
   padding: 15px;
   background-color: #000000;
-  position: absolute;
+  position: relative;
+  overflow: hidden;
 }
 
 .login-wrapper {
   width: 1120px;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -40,4 +41,40 @@
   position: absolute;
   left: 80%;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .staff-btn.Button {
+    display: flex;
+  }
+}
+
+@media (max-width: 778px) {
+  .staff-btn {
+    left: 70%;
+  }
+
+  .staff-btn.Button {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .staff-btn {
+    left: 60%;
+  }
+
+  .staff-btn.Button {
+    display: flex;
+  }
+}
+
+@media (max-width: 400px) {
+  .staff-btn {
+    left: 45%;
+  }
+
+  .staff-btn.Button {
+    display: flex;
+  }
 }
