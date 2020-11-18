@@ -25,6 +25,7 @@ export const Button = ({
 
   return (
     <button
+      id="important"
       disabled={disable}
       className={`btn ${checkButtonStyle} ${checkButtonSize} ${
         disable ? "" : btnDark

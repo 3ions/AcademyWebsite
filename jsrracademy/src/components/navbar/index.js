@@ -7,7 +7,6 @@ import "./Navbar.css";
 
 function NavbarMain() {
   const location = useLocation();
-  console.log(location);
 
   if (location.pathname === "/") {
     return <Navbar />;

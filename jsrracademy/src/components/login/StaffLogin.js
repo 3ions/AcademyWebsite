@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 import { Button } from "../common/Button";
+import { loginStaff } from "../../actions/authActions";
 import TextField from "../common/TextField";
 import "./login.css";
 
@@ -12,12 +14,23 @@ class StaffLogin extends Component {
     this.state = {
       email: "",
       password: "",
+      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
 
-    this.setAuthToken = this.setAuthToken.bind(this);
+  componentDidMount() {
+    if (this.props.auth.isStaffAuth) {
+      this.props.history.push("/staffs/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isStaffAuth) {
+      this.props.history.push("/staffs/dashboard");
+    }
   }
 
   onChange(e) {
@@ -27,69 +40,50 @@ class StaffLogin extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const userData = {
+    const staffData = {
       email: this.state.email,
       password: this.state.password,
     };
 
-    axios
-      .post("/students/login", userData)
-      .then((res) => {
-        // Save to localStorage
-        const { token } = res.data;
-        // Set token to ls
-        localStorage.setItem("jwtToken", token);
-        // Set token to Auth header
-        this.setAuthToken(token);
-        // Decode token to get user data
-        const decoded = jwt_decode(token);
-        // Set current user
-        console.log(decoded);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.loginStaff(staffData);
   }
 
-  setAuthToken = (token) => {
-    if (token) {
-      // Apply to every request
-      axios.defaults.headers.common["Authorization"] = token;
-    } else {
-      // Delete auth header
-      delete axios.defaults.headers.common["Authorization"];
-    }
-  };
-
   render() {
+    const { errors } = this.props;
+
     return (
       <div className="login-container">
         <div className="login-wrapper">
           <div className="align-login">
-            <TextField
-              forType="email"
-              title="Email ID *"
-              id="email"
-              type="text"
-              name="email"
-              placeholder="Enter Your Email ID"
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-            <TextField
-              forType="password"
-              title="Password *"
-              id="password"
-              type="text"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-            <div className="btn-align">
-              <Button dark="true">Log In</Button>
-            </div>
+            <form onSubmit={this.onSubmit}>
+              <TextField
+                forType="email"
+                title="Email ID *"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter Your Email ID"
+                value={this.state.email}
+                onChange={this.onChange}
+                error={errors.email}
+              />
+              <TextField
+                forType="password"
+                title="Password *"
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.onChange}
+                error={errors.password}
+              />
+              <div className="btn-align">
+                <Button dark="true">Log In</Button>
+              </div>
+            </form>
           </div>
+
           <div className="staff-btn">
             <Link to="/students">
               <Button dark="true">Student LogIn</Button>
@@ -101,4 +95,15 @@ class StaffLogin extends Component {
   }
 }
 
-export default StaffLogin;
+StaffLogin.propTypes = {
+  loginStaff: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { loginStaff })(StaffLogin);

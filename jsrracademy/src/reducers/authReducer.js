@@ -1,18 +1,26 @@
-import { SET_CURRENT_USER } from "../actions/types";
+import { SET_CURRENT_STUDENT, SET_CURRENT_STAFF } from "../actions/types";
 import isEmpty from "../validation/is-empty";
 
 const initialState = {
-  isAuthenticated: false,
-  user: {},
+  isStudentAuth: false,
+  isStaffAuth: false,
+  student: {},
+  staff: {},
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case SET_CURRENT_STUDENT:
       return {
         ...state,
-        isAuthenticated: !isEmpty(action.payload),
-        user: action.payload,
+        isStudentAuth: !isEmpty(action.payload),
+        student: action.payload,
+      };
+    case SET_CURRENT_STAFF:
+      return {
+        ...state,
+        isStaffAuth: !isEmpty(action.payload),
+        staff: action.payload,
       };
     default:
       return state;
