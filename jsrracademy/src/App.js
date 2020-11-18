@@ -11,6 +11,9 @@ import StudentLogin from "./components/login/StudentLogin";
 import StaffLogin from "./components/login/StaffLogin";
 import PrivateRoute from "./components/common/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Assignment from "./components/assignment/Assignment";
+import StudentRegistration from "./components/register/StudentRegistration";
+import StaffRegistration from "./components/register/StaffRegistration";
 import setAuthToken from "./utils/setAuthToken";
 import {
   logoutStudent,
@@ -80,6 +83,27 @@ class App extends Component {
               exact
               path="/staffs/dashboard"
               component={Dashboard}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/students/assignment"
+              component={Assignment}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/staffs/reg-student"
+              component={StudentRegistration}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/staffs/register"
+              component={StaffRegistration}
             />
           </Switch>
         </Router>

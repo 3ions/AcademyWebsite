@@ -60,13 +60,13 @@ class NavbarComp extends Component {
         onClick={this.closeMobileMenu}
       >
         <li className="nav-links active">
-          <Link to="/staffs/studentReg" onClick={this.closeMobileMenu}>
-            Register Student!
+          <Link to="/staffs/reg-student" onClick={this.closeMobileMenu}>
+            Register Student
           </Link>
         </li>
         <li className="nav-links active">
           <Link to="/staffs/register" onClick={this.closeMobileMenu}>
-            Register Staff!
+            Register Staff
           </Link>
         </li>
         <li className="nav-links active">

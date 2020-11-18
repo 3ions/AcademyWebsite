@@ -11,11 +11,7 @@ function NavbarMain() {
   if (location.pathname === "/") {
     return <Navbar />;
   } else {
-    return (
-      <div>
-        <NavbarComp />
-      </div>
-    );
+    return <NavbarComp />;
   }
 }
 
