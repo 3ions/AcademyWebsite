@@ -60,22 +60,34 @@ class NavbarComp extends Component {
         onClick={this.closeMobileMenu}
       >
         <li className="nav-links active">
-          <Link to="/staffs/reg-student" onClick={this.closeMobileMenu}>
+          <Link
+            to="/staffs/reg-student"
+            onClick={this.closeMobileMenu}
+            style={{ color: "#f2f2f2" }}
+          >
             Register Student
           </Link>
         </li>
         <li className="nav-links active">
-          <Link to="/staffs/register" onClick={this.closeMobileMenu}>
+          <Link
+            to="/staffs/register"
+            onClick={this.closeMobileMenu}
+            style={{ color: "#f2f2f2" }}
+          >
             Register Staff
           </Link>
         </li>
         <li className="nav-links active">
-          <a href="/" onClick={this.onStaffLogout}>
+          <a href="/" onClick={this.onStaffLogout} style={{ color: "#f2f2f2" }}>
             <img
               className="rounded-circle"
               src={staff.avatar}
               alt={staff.name}
-              style={{ width: "25px", marginRight: "7px", marginTop: "5px" }}
+              style={{
+                width: "25px",
+                marginRight: "7px",
+                marginTop: "5px",
+              }}
             />
             Logout
           </a>
@@ -89,17 +101,29 @@ class NavbarComp extends Component {
         onClick={this.closeMobileMenu}
       >
         <li className="nav-links active">
-          <Link to="/students/assignment" onClick={this.closeMobileMenu}>
+          <Link
+            to="/students/assignment"
+            onClick={this.closeMobileMenu}
+            style={{ color: "#f2f2f2" }}
+          >
             Assignments
           </Link>
         </li>
         <li className="nav-links active">
-          <a href="/" onClick={this.onStudentLogout}>
+          <a
+            href="/"
+            onClick={this.onStudentLogout}
+            style={{ color: "#f2f2f2" }}
+          >
             <img
               className="rounded-circle"
               src={student.avatar}
               alt={student.name}
-              style={{ width: "25px", marginRight: "7px", marginTop: "5px" }}
+              style={{
+                width: "25px",
+                marginRight: "7px",
+                marginTop: "5px",
+              }}
             />
             Logout
           </a>

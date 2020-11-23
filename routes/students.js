@@ -29,6 +29,16 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
+  StudentUser.find()
+    .limit(1)
+    .sort({ studentID: -1 })
+    .then((student) => {
+      console.log(student);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   StudentUser.findOne({ studentID: req.body.studentID }).then((student) => {
     if (student) {
       errors.studentID = "StudentID already exists";
