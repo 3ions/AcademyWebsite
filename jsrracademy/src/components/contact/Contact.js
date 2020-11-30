@@ -138,7 +138,7 @@ class Contact extends Component {
                     <span className="pad">Call Us</span>
                   </span>
 
-                  <span className="txt">080-22225590</span>
+                  <span className="txt">080-2222 5590</span>
                 </div>
               </div>
               <div className="text-wrap">

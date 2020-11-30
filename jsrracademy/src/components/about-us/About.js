@@ -22,7 +22,7 @@ function About() {
           </div>
           <p className="text1">
             <strong className="important">
-              Jnakshi Sri RajaRajeshwari Academy{" "}
+              Jnanakshi Sri RajaRajeshwari Academy{" "}
             </strong>
             (JSRRA) is an incompatible <b>School of Learning</b> lead by diverse
             and highly trained faculty.
